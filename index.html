@@ -1,0 +1,149 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <nav class="bg-white border-gray-200 dark:bg-gray-900">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="http://127.0.0.1:5502/dist/index.html#" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">DailyPulse</span>
+            </a>
+            <div class="flex md:order-2">
+                <button type="button" data-collapse-toggle="navbar-search" aria-controls="navbar-search"
+                    aria-expanded="false"
+                    class="md:hidden text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 me-1">
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 20 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                    </svg>
+                    <span class="sr-only">Search</span>
+                </button>
+                <div class="relative hidden md:block">
+                    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                        </svg>
+                        <span class="sr-only">Search icon</span>
+                    </div>
+                    <input type="text" id="search-navbar"
+                        class="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Search...">
+                </div>
+                <button data-collapse-toggle="navbar-search" type="button"
+                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    aria-controls="navbar-search" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M1 1h15M1 7h15M1 13h15" />
+                    </svg>
+                </button>
+            </div>
+
+        </div>
+    </nav>
+    <div class="container mx-auto ">
+        <!-- ... -->
+        <div class="border mx-auto ">
+            <!-- ... -->
+
+        </div>
+
+    </div>
+    <section class="footer-secNewsletter bg-gray-100 py-12">
+        <div class="container mx-auto">
+            <ul class="list-none">
+                <h3 class="text-2xl font-semibold mb-4">KEEP IN TOUCH, JOIN OUR EMAIL LIST</h3>
+                <p>Get updates on News and weather around the world.</p>
+                <form method="post" action="" onsubmit="return newsletter_check(this)">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="mb-4">
+                            <input type="hidden" name="nlang" value="">
+                            <input type="text" class="w-full px-4 py-2 border rounded-md"
+                                placeholder="First name (required)" name="nn" required="">
+                        </div>
+                        <div class="mb-4">
+                            <input type="text" class="w-full px-4 py-2 border rounded-md" placeholder="Last name"
+                                name="ns">
+                        </div>
+                        <div class="mb-4">
+                            <input type="email" class="w-full px-4 py-2 border rounded-md"
+                                placeholder="Email Address (Required)" name="ne" required="">
+                        </div>
+                        <div class="mb-4">
+                            <input type="number" class="w-full px-4 py-2 border rounded-md" placeholder="Mobile number"
+                                name="np1">
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <input class="mr-2" type="checkbox" required="" name="ny" id="defaultCheck1">
+                        <label class="label-newsletter" for="defaultCheck1">
+                            I am happy to receive updates from Daily Pulse by email (inc. via social media) and SMS
+                        </label>
+                    </div>
+                    <div class="mb-4">
+                        <p>We will always treat your personal information with the utmost care and will keep it private.
+                            You can opt out at any time by clicking the unsubscribe button on one of the emails you
+                            receive from us.</p>
+                    </div>
+                    <p>
+                        <button type="submit" class="bg-blue-500 text-white px-6 py-3 rounded-md">SIGN UP</button>
+                    </p>
+                </form>
+            </ul>
+        </div>
+    </section>
+
+    <div class=" hidden items-center absolute top-2.5 end-2.5 md:relative md:top-auto md:end-auto">
+        <button data-dismiss-target="#newsletter-banner" type="button"
+            class="flex-shrink-0 inline-flex justify-center w-7 h-7 items-center text-gray-400 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 dark:hover:bg-gray-600 dark:hover:text-white">
+            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+            </svg>
+            <span class="sr-only">Close banner</span>
+        </button>
+    </div>
+    </div>
+    <footer
+        class="fixed-scroll bottom-0 left-0 z-20 w-full p-4 bg-white border-t border-gray-400 shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800 dark:border-gray-600">
+        <span class="text-sm text-white sm:text-center dark:text-white">© Copyright 2023 <a href=""
+                class="hover:underline">DailyPulse, </a>Inc. All rights reserved.
+        </span>
+        <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-white dark:text-white sm:mt-0">
+            <li>
+                <a href="#" class="hover:underline me-4 md:me-6">World news</a>
+            </li>
+            <li>
+                <a href="#" class="hover:underline me-4 md:me-6">Weather</a>
+            </li>
+            <li>
+                <a href="#" class="hover:underline me-4 md:me-6">About Us</a>
+            </li>
+            <li>
+                <a href="#" class="hover:underline">Contact</a>
+            </li>
+        </ul>
+
+
+
+
+
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+        integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+    <script src='/assets/js/script.js'></script>
+
+</body>
+
+</html>
