@@ -3,7 +3,7 @@
 $(document).ready(function () {
     {
 
-        let category = 'world'
+        let category = ''
         const searchInput = document.getElementById('query');
 
         let value = ''
@@ -11,32 +11,38 @@ $(document).ready(function () {
         $('#btn').on('click', function (event) {
             event.preventDefault();
             value = searchInput.value
-            musti()
+
+            loadPage()
         });
         $('#btn2').on('click', function (event) {
-            event.preventDefault();
 
+            location.reload()
             category = 'world'
-            musti()
+            localStorage.setItem('mycategory', category)
+            loadPage()
         });
 
         $('#btn3').on('click', function (event) {
-            event.preventDefault();
 
+            location.reload()
             category = 'sport'
-            musti()
+            localStorage.setItem('mycategory', category)
+            loadPage()
         });
 
         $('#btn4').on('click', function (event) {
-            event.preventDefault();
 
+            location.reload()
             category = 'travel'
-            musti()
+            localStorage.setItem('mycategory', category)
+            loadPage()
         });
-        function musti() {
+        function loadPage() {
             var myBreaknew = document.querySelector('.container')
-            const url = `https://newsi-api.p.rapidapi.com/api/category?category=${category}&language=en&country=gb&sort=top&page=1&limit=90`;
-            console.log(category)
+            category = localStorage.getItem('mycategory')
+
+            const url = `https://newsi-api.p.rapidapi.com/api/category?category=${category}&language=en&country=gb&sort=top&page=1&limit=9`;
+
             const options = {
                 method: 'GET',
                 headers: {
@@ -53,52 +59,47 @@ $(document).ready(function () {
 
                     let myData = []
                     for (let i = 0; i < data.length; i++) {
-                        let nameSearch = data[i].title;
 
-                        if (value == '') {
 
-                        }
 
-                        else if (nameSearch.toLowerCase().includes(`${value}`)) {
-                            console.log("this is the value after the if" + value)
-                            let newsArticle = document.createElement('div');
-                            let newsTitle = document.createElement('p');
-                            let sourceNames = document.createElement('p');
-                            let linkText = document.createElement('a');
+                        let newsArticle = document.createElement('div');
+                        let newsTitle = document.createElement('p');
+                        let sourceNames = document.createElement('p');
+                        let linkText = document.createElement('a');
 
-                            let imageNews = document.createElement('img');
-                            linkText.href = `${data[i].link}`
-                            linkText.textContent = `${'Link'}: ${"Read More"}`
-                            linkText.classList.add('cursor-pointer', 'hover:font-serif');
-                            newsTitle.classList.add('font-medium', 'text-red-600');
+                        let imageNews = document.createElement('img');
+                        linkText.href = `${data[i].link}`
+                        linkText.textContent = `${'Link'}: ${"Read More"}`
+                        linkText.classList.add('cursor-pointer', 'hover:font-serif');
+                        newsTitle.classList.add('font-medium', 'text-red-600');
 
-                            let newsImage = data[i].image;
-                            sourceNames.textContent = `${'Source'}: ${data[i].sourceName}`
-                            console.log(newsImage)
-                            imageNews.src = newsImage
-                            imageNews.setAttribute('class', 'max-w-lg');
+                        let newsImage = data[i].image;
+                        sourceNames.textContent = `${'Source'}: ${data[i].sourceName}`
 
-                            newsTitle.textContent = `${'Breaking News'}: ${data[i].title}`
-                            sourceNames.classList.add('mb-2.5');
+                        imageNews.src = newsImage
+                        imageNews.setAttribute('class', 'max-w-lg');
 
-                            myBreaknew.appendChild(newsTitle);
-                            myBreaknew.appendChild(imageNews);
-                            myBreaknew.appendChild(newsArticle.appendChild(linkText))
-                            myBreaknew.appendChild(sourceNames)
-                            // }
+                        newsTitle.textContent = `${'Breaking News'}: ${data[i].title}`
+                        sourceNames.classList.add('mb-2.5');
 
-                            myData.push(data[i].sourceName)
-                        }
+                        myBreaknew.appendChild(newsTitle);
+                        myBreaknew.appendChild(imageNews);
+                        myBreaknew.appendChild(newsArticle.appendChild(linkText))
+                        myBreaknew.appendChild(sourceNames)
+                        // }
 
-                        // localStorage.setItem('listoftitle', myData)
+                        myData.push(data[i].sourceName)
+
+
+
                     }
                 });
 
         }
 
-        //let newItems = localStorage.getItem('listoftitle')
 
-        musti()
+
+        loadPage()
 
     };
 });
