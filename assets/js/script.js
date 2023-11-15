@@ -7,25 +7,43 @@ $(document).ready(function () {
         const searchInput = document.getElementById('query');
 
         let value = ''
+        // This block of code is dealing with search of a topic to selecting the type of news SPORT / TRAVEL /WORLD NEWS
         $('#btn').on('click', function (event) {
             event.preventDefault();
             value = searchInput.value
-            console.log(value)
-
-             musti()
+            musti()
         });
-        var myBreaknew = document.querySelector('.container')
-        const url = `https://newsi-api.p.rapidapi.com/api/category?category=${category}&language=en&country=gb&sort=top&page=1&limit=9`;
+        $('#btn2').on('click', function (event) {
+            event.preventDefault();
 
-        const options = {
-            method: 'GET',
-            headers: {
-                'X-RapidAPI-Key': 'b736635cfbmsh2fbb6e7b1ed2647p18f102jsn0c400d84a5fa',
-                'X-RapidAPI-Host': 'newsi-api.p.rapidapi.com'
-            }
-        };
+            category = 'world'
+            musti()
+        });
 
+        $('#btn3').on('click', function (event) {
+            event.preventDefault();
+
+            category = 'sport'
+            musti()
+        });
+
+        $('#btn4').on('click', function (event) {
+            event.preventDefault();
+
+            category = 'travel'
+            musti()
+        });
         function musti() {
+            var myBreaknew = document.querySelector('.container')
+            const url = `https://newsi-api.p.rapidapi.com/api/category?category=${category}&language=en&country=gb&sort=top&page=1&limit=90`;
+            console.log(category)
+            const options = {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': 'b736635cfbmsh2fbb6e7b1ed2647p18f102jsn0c400d84a5fa',
+                    'X-RapidAPI-Host': 'newsi-api.p.rapidapi.com'
+                }
+            };
 
             fetch(url, options)
                 .then(function (response) {
