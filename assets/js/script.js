@@ -4,16 +4,18 @@ $(document).ready(function () {
     {
 
         let category = 'world'
-        const searchInput = document.getElementById('search-navbar');
-        let value = ''
-        $('#search-navbar').on('click', function (event) {
-            
-            value = searchInput.value
+        const searchInput = document.getElementById('query');
 
-            musti()
+        let value = ''
+        $('#btn').on('click', function (event) {
+            event.preventDefault();
+            value = searchInput.value
+            console.log(value)
+
+             musti()
         });
         var myBreaknew = document.querySelector('.container')
-        const url = `https://newsi-api.p.rapidapi.com/api/category?category=${category}&language=en&country=gb&sort=top&page=1&limit=90`;
+        const url = `https://newsi-api.p.rapidapi.com/api/category?category=${category}&language=en&country=gb&sort=top&page=1&limit=9`;
 
         const options = {
             method: 'GET',
