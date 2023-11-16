@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,15 +8,15 @@
 </head>
 
 <body>
-    <nav class="bg-yellow-800  border-gray-200 dark:bg-gray-900">
+    <nav class="bg-white border-gray-200 dark:bg-gray-900">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="http://127.0.0.1:5502/dist/index.html#" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <a href="http://127.0.0.1:5500/index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">DailyPulse</span>
             </a>
             <div class="flex md:order-2">
-                <button type="button" data-collapse-toggle="navbar-search" aria-controls="navbar-search"
+                <button id='btn' type="button" data-collapse-toggle="navbar-search" aria-controls="navbar-search"
                     aria-expanded="false"
-                    class="md:hidden text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 me-1">
+                    class=" text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 me-1">
                     <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                         viewBox="0 0 20 20">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -23,33 +24,32 @@
                     </svg>
                     <span class="sr-only">Search</span>
                 </button>
-                <div class="relative hidden md:block">
 
-                    <form id="search-form">
+                <form id="search-form">
 
-                        <button id='btn2' type="submit">
-                            <i class="fa fa-search"></i> world News</button>
-                        <br>
-                        <button id='btn3' type="submit">
-                            <i class="fa fa-search"></i> Sport News</button>
-                        <br>
-                        <button id='btn4' type="submit">
-                            <i class="fa fa-search"></i> Travel News</button>
-                    </form>
-                </div>
+                    <input type="text" id="query"
+                        class=" hover:bg-gray-300 block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Search...">
+
+                </form>
 
             </div>
+        </div>
 
         </div>
     </nav>
+
+    <div id="news-container"
+        class="border border-solid border-navy-500 dark:bg-gray-600 p-8 m-4 w-100 h-144 mx-auto overflow-auto"></div>
+    <div id="weather-container"
+        class="border border-solid border-navy-500 dark:bg-gray-600 p-8 m-4 w-192 h-144 mx-auto overflow-auto"></div>
     <div class="container mx-auto ">
-        <!-- ... -->
-        <div class="border mx-auto ">
-            <!-- ... -->
+
+        <div class="border mx-auto">
 
         </div>
-
     </div>
+
     <section class="footer-secNewsletter bg-gray-100 py-12">
         <div class="container mx-auto">
             <ul class="list-none">
@@ -59,20 +59,20 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div class="mb-4">
                             <input type="hidden" name="nlang" value="">
-                            <input type="text" class="w-full px-4 py-2 border rounded-md"
+                            <input type="text" id="first-name" class="w-full px-4 py-2 border rounded-md"
                                 placeholder="First name (required)" name="nn" required="">
                         </div>
                         <div class="mb-4">
-                            <input type="text" class="w-full px-4 py-2 border rounded-md" placeholder="Last name"
-                                name="ns">
+                            <input type="text" id="second-name" class="w-full px-4 py-2 border rounded-md"
+                                placeholder="Last name" name="ns">
                         </div>
                         <div class="mb-4">
-                            <input type="email" class="w-full px-4 py-2 border rounded-md"
+                            <input type="email" id="email" class="w-full px-4 py-2 border rounded-md"
                                 placeholder="Email Address (Required)" name="ne" required="">
                         </div>
                         <div class="mb-4">
-                            <input type="number" class="w-full px-4 py-2 border rounded-md" placeholder="Mobile number"
-                                name="np1">
+                            <input type="number" id="number" class="w-full px-4 py-2 border rounded-md"
+                                placeholder="Mobile number" name="np1">
                         </div>
                     </div>
                     <div class="mb-4">
@@ -87,7 +87,8 @@
                             receive from us.</p>
                     </div>
                     <p>
-                        <button type="submit" class="bg-blue-500 text-white px-6 py-3 rounded-md">SIGN UP</button>
+                        <button type="submit" id="submit-btn" class="bg-blue-500 text-white px-6 py-3 rounded-md">SIGN
+                            UP</button>
                     </p>
                 </form>
             </ul>
@@ -112,30 +113,18 @@
         </span>
         <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-white dark:text-white sm:mt-0">
             <li>
-                <a href="#" class="hover:underline me-4 md:me-6">World news</a>
-            </li>
-            <li>
-                <a href="#" class="hover:underline me-4 md:me-6">Weather</a>
-            </li>
-            <li>
                 <a href="#" class="hover:underline me-4 md:me-6">About Us</a>
             </li>
             <li>
                 <a href="#" class="hover:underline">Contact</a>
             </li>
         </ul>
-
-
-
-
-
     </footer>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
         integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
-    <script src='/assets/js/script.js'></script>
-
+    <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
